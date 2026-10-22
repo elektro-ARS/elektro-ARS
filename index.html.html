@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="bs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltTech | Profesionalne Elektroinstalacije i Inženjering</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B132B',
+                            card: '#1C2541',
+                            accent: '#F7B801', // Električno žuta/zlatna
+                            glow: '#3A86FF', // Tehničko plava
+                            muted: '#475569',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B132B;
+            color: #E2E8F0;
+        }
+        
+        /* Custom Glowing & Glassmorphism effects */
+        .glass-card {
+            background: rgba(28, 37, 65, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(247, 184, 1, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(247, 184, 1, 0.15);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(247, 184, 1, 0.4);
+        }
+
+        .border-glow {
+            box-shadow: 0 0 15px rgba(58, 134, 255, 0.3);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C2541;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F7B801;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-brand-dark">
+
+    <!-- Top Bar Info -->
+    <div class="bg-slate-950 text-slate-400 text-xs py-2.5 px-4 border-b border-slate-800/60 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-2"><i class="fa-regular fa-clock text-brand-accent"></i> Radno vrijeme: Pon - Sub: 08:00 - 17:00</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-brand-accent"></i> Hitne intervencije: 0-24h</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> Mehmeda Pasha Sokolovića 12, Sarajevo</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:info@volttech.ba" class="hover:text-brand-accent transition-colors"><i class="fa-regular fa-envelope mr-1"></i> info@volttech.ba</a>
+                <a href="tel:+38761123456" class="hover:text-brand-accent transition-colors"><i class="fa-solid fa-phone mr-1"></i> +387 61 123 456</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 glass-card bg-brand-dark/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-accent to-amber-500 flex items-center justify-center text-brand-dark font-extrabold text-2xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-wider text-white">VOLT<span class="text-brand-accent">TECH</span></span>
+                        <span class="block text-[10px] tracking-widest text-slate-400 font-semibold uppercase -mt-1">Elektro Inženjering</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#početna" class="text-white hover:text-brand-accent transition-colors">Početna</a>
+                    <a href="#o-nama" class="text-slate-300 hover:text-brand-accent transition-colors">O nama</a>
+                    <a href="#usluge" class="text-slate-300 hover:text-brand-accent transition-colors">Usluge</a>
+                    <a href="#kalkulator" class="text-slate-300 hover:text-brand-accent transition-colors">Kalkulator</a>
+                    <a href="#zasto-nas" class="text-slate-300 hover:text-brand-accent transition-colors">Sigurnost</a>
+                    <a href="#kontakt" class="text-slate-300 hover:text-brand-accent transition-colors">Kontakt</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+38761123456" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-phone-volume text-brand-accent animate-pulse"></i>
+                        <span>Hitni poziv</span>
+                    </a>
+                    <a href="#kontakt" class="bg-brand-accent hover:bg-amber-400 text-brand-dark px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+                        Zatraži ponudu
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none" aria-label="Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-card/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#početna" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-800">Početna</a>
+            <a href="#o-nama" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">O nama</a>
+            <a href="#usluge" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Usluge</a>
+            <a href="#kalkulator" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Kalkulator Procjene</a>
+            <a href="#zasto-nas" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Sigurnost i Standardi</a>
+            <a href="#kontakt" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Kontakt</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <a href="tel:+38761123456" class="w-full text-center bg-slate-800 text-slate-200 py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone-volume text-brand-accent"></i>
+                    <span> Hitne intervencije: 0-24h</span>
+                </a>
+                <a href="#kontakt" class="mobile-link w-full text-center bg-brand-accent text-brand-dark py-3 rounded-xl font-bold">
+                    Zatraži besplatnu procjenu
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="početna" class="relative py-20 lg:py-32 overflow-hidden border-b border-slate-800/80">
+        <!-- Background Grid & Glow Patterns -->
+        <div class="absolute inset-0 bg-[radial-gradient(#3A86FF_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-glow/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-shield-halved"></i> Licencirani Inženjeri & Sertificirani Izvođači
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Sigurna, napredna i pouzdana <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-amber-300 to-amber-500">elektro energija.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Specijalizovani za projektovanje, izvođenje i održavanje elektrotehničkih sistema, naponskih ormara, EV punjača, vatrodojave i rezervnih sistema napajanja za stambene, poslovne i industrijske objekte.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#kalkulator" class="w-full sm:w-auto bg-brand-accent hover:bg-amber-400 text-brand-dark font-bold px-8 py-4 rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center gap-3">
+                            <span>Izračunaj procjenu</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#usluge" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-8 py-4 rounded-xl transition-all text-center">
+                            Pregled usluga
+                        </a>
+                    </div>
+
+                    <!-- Highlights Badge -->
+                    <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">12+</div>
+                            <div class="text-xs text-slate-400 mt-1">Godina iskustva</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-brand-accent">850+</div>
+                            <div class="text-xs text-slate-400 mt-1">Projekata završeno</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">24/7</div>
+                            <div class="text-xs text-slate-400 mt-1">Dežurni tim</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Image/Graphic Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="glass-card p-6 rounded-2xl relative z-10 shadow-2xl">
+                            <div class="relative rounded-xl overflow-hidden aspect-video sm:aspect-square mb-6 border border-slate-700">
+                                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Električar na radu" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4 p-3 bg-brand-dark/80 backdrop-blur-md rounded-lg border border-slate-700 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                                        <span class="text-xs font-semibold text-slate-200">Aktivne intervencije u toku</span>
+                                    </div>
+                                    <span class="text-[10px] text-brand-accent bg-amber-500/10 px-2 py-1 rounded font-mono">STATUS: OK</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Quick Specs Box -->
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center text-xs pb-2 border-b border-slate-800">
+                                    <span class="text-slate-400">Certifikacija:</span>
+                                    <span class="text-slate-200 font-semibold">ISO 9001 / IEC Standardi</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs pb-2 border-b border-slate-800">
+                                    <span class="text-slate-400">Garancija na radove:</span>
+                                    <span class="text-brand-accent font-semibold">Do 5 Godina</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-slate-400">Ispitivanja i atesti:</span>
+                                    <span class="text-emerald-400 font-semibold">Zakon o zaštiti na radu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- O nama Sekcija -->
+    <section id="o-nama" class="py-20 bg-slate-900/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-block text-brand-accent text-sm font-bold tracking-widest uppercase">O Našoj Kompaniji</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Inženjerska preciznost i vrhunski standardi elektrotehnike</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        VoltTech je vodeća kompanija u oblasti projektovanja, izvođenja i održavanja kompletnih elektrotehničkih sistema. Naš tim čine licencirani inženjeri elektro struke i visoko obučeni tehničari sa dugogodišnjim iskustvom na kompleksnim projektima.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Svakom projektu pristupamo sa maksimalnom posvećenošću, primjenjujući važeće evropske normativizacije (IEC/EN standarde). Bilo da se radi o kućnim instalacijama, industrijskim postrojenjima ili održavanju kritične infrastrukture, garantujemo sigurnost, kvalitet i dugotrajnost.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-accent mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Savremeni alati</h4>
+                                <p class="text-xs text-slate-400">Korištenje kalibrisanih mjernih instrumenata.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-accent mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Zakon i Atesti</h4>
+                                <p class="text-xs text-slate-400">Izdavanje zvaničnih zapisnika i certifikata.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 relative">
+                    <div class="space-y-4">
+                        <div class="glass-card p-5 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-user-shield text-3xl text-brand-glow mb-3"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Sigurnost Prvo</h3>
+                            <p class="text-xs text-slate-400">Bezkompromisna zaštita ljudi i imovine od strujnog udara i požara.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-microchip text-3xl text-brand-accent mb-3"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Pametni Sistemi</h3>
+                            <p class="text-xs text-slate-400">Integracija pametnih upravljačkih jedinica i automatizacije.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="glass-card p-5 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-headset text-3xl text-emerald-400 mb-3"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Podrška 24/7</h3>
+                            <p class="text-xs text-slate-400">Brza reakcija u slučaju hitnih kvarova i nepredviđenih zastoja.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-award text-3xl text-amber-400 mb-3"></i>
+                            <h3 class="text-lg font-bold text-white mb-1">Certifikovan Tim</h3>
+                            <p class="text-xs text-slate-400">Redovne obuke i praćenje najnovijih svjetskih tehnologija.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usluge Grid Sekcija (8 ključnih usluga) -->
+    <section id="usluge" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent text-sm font-bold tracking-widest uppercase">Naše Specijalnosti</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Sveobuhvatne Elektrotehničke Usluge</h2>
+                <p class="text-slate-400 mt-4">Pružamo kompletna rješenja po principu "ključ u ruke" uz garanciju kvaliteta i poštovanje svih zakonskih regulativa.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Usluga 1 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-brand-accent flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Izvođenje i održavanje elektroinstalacija</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Izrada jakih i slabih struja za stambene, poslovne i industrijske objekte. Adaptacije, novogradnja i redovno održavanje.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Kabliranje i fine montaže</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Industrijske instalacije</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 2 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-brand-glow flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-box-archive"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Razvodni ormari</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Projektovanje, šemiranje i sklapanje industrijskih i kućnih razvodnih ormara uz primjenu vrhunske opreme.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Automatika i RS ormari</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Reorganizacija starih tabli</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 3 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-charging-station"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">EV punjači za vozila</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Professionalna ugradnja kućnih i komercijalnih stanica za punjenje električnih automobila i hibrida.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Wallbox & DC brzi punjači</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Sistem kontrole pristupa</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 4 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-brand-accent flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cloud-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Gromobran & Uzemljenje</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Zaštita objekata od atmosferskih pražnjenja, izrada uzemljivača i ugradnja odvodnika prenapona.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Klasični i hvataljke sa uređajem</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Prenaponska SPD zaštita</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 5 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-car-battery"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Agregati i BackUP napajanja</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Instalacija neprekidnih napajanja (UPS) i dizel/benzinskih agregata sa automatskim preklopnim ormarima (ATS).
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Automatsko prebacivanje (ATS)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Kontinuirano napajanje opreme</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 6 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-300 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Rasvjetna rješenja</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Dizajn i montaža LED rasvjete, industrijske, arhitektonske, ambijentalne, vanjske i pametne rasvjete.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> DALI & Smart kontrola</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Energetski efikasna LED</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 7 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-fire-extinguisher"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Protupožarno zatvaranje & Vatrodojava</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Certificirani sistemi za brtvljenje kablovskih prodora (Hilti/Promat) i projektovanje/montaža vatrodojave.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Protupožarne mase i jastuci</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Adresabilni sistemi dojave</li>
+                    </ul>
+                </div>
+
+                <!-- Usluga 8 -->
+                <div class="glass-card p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Ispitivanje i Atestacija</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                            Mjeriteljska ispitivanja strujnih krugova, otpora uzemljenja, RCD sklopki, termovizijska snimanja i atesti.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Zvanični stručni nalazi</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-accent text-[10px]"></i> Termovizija ormara</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interaktivni Kalkulator Procjene Projekta -->
+    <section id="kalkulator" class="py-20 bg-slate-900/80 border-y border-slate-800 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-accent text-sm font-bold tracking-widest uppercase">Brzi Upitnik</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Interaktivni Kalkulator Procjene</h2>
+                <p class="text-slate-400 text-sm mt-2">Odaberite parametre vašeg objekta i usluge kako biste dobili okvirnu procjenu i poslali brz upit našem inženjerskom timu.</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-10 rounded-2xl border border-slate-800">
+                <form id="calc-form" onsubmit="event.preventDefault(); calculateEstimate();">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        
+                        <!-- Step 1: Tip Objekta -->
+                        <div class="space-y-4">
+                            <label class="block text-sm font-semibold text-slate-200">1. Tip Objekta / Prostora</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="facility" value="stan" class="peer hidden" checked>
+                                    <div class="p-3 rounded-xl border border-slate-700 bg-slate-800/50 peer-checked:border-brand-accent peer-checked:bg-brand-accent/10 text-center transition-all">
+                                        <i class="fa-solid fa-house text-slate-400 peer-checked:text-brand-accent mb-1 block"></i>
+                                        <span class="text-xs font-medium text-slate-300">Stan / Kuća</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="facility" value="poslovni" class="peer hidden">
+                                    <div class="p-3 rounded-xl border border-slate-700 bg-slate-800/50 peer-checked:border-brand-accent peer-checked:bg-brand-accent/10 text-center transition-all">
+                                        <i class="fa-solid fa-building text-slate-400 peer-checked:text-brand-accent mb-1 block"></i>
+                                        <span class="text-xs font-medium text-slate-300">Poslovni prostor</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="facility" value="industrija" class="peer hidden">
+                                    <div class="p-3 rounded-xl border border-slate-700 bg-slate-800/50 peer-checked:border-brand-accent peer-checked:bg-brand-accent/10 text-center transition-all">
+                                        <i class="fa-solid fa-industry text-slate-400 peer-checked:text-brand-accent mb-1 block"></i>
+                                        <span class="text-xs font-medium text-slate-300">Industrija / Hal</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="facility" value="ostalo" class="peer hidden">
+                                    <div class="p-3 rounded-xl border border-slate-700 bg-slate-800/50 peer-checked:border-brand-accent peer-checked:bg-brand-accent/10 text-center transition-all">
+                                        <i class="fa-solid fa-wrench text-slate-400 peer-checked:text-brand-accent mb-1 block"></i>
+                                        <span class="text-xs font-medium text-slate-300">Manji zahvati</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Površina objekta slider -->
+                            <div class="pt-4">
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-slate-300 font-medium">Procijenjena Površina (m²):</span>
+                                    <span id="area-val" class="text-brand-accent font-bold text-sm">80 m²</span>
+                                </div>
+                                <input type="range" id="area-slider" min="20" max="1000" step="10" value="80" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-accent" oninput="document.getElementById('area-val').innerText = this.value + ' m²'; calculateEstimate();">
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Potrebne Usluge (Checkbox) -->
+                        <div class="space-y-4">
+                            <label class="block text-sm font-semibold text-slate-200">2. Odaberite potrebe (Višestruki izbor)</label>
+                            <div class="space-y-2 max-h-56 overflow-y-auto pr-2">
+                                <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-800/50 cursor-pointer border border-transparent hover:border-slate-800">
+                                    <input type="checkbox" value="instalacije" class="srv-cb w-4 h-4 rounded text-brand-accent focus:ring-0 bg-slate-900 border-slate-700" checked onchange="calculateEstimate()">
+                                    <span class="text-xs text-slate-300">Izvođenje novih / Rekonstrukcija instalacija</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-800/50 cursor-pointer border border-transparent hover:border-slate-800">
+                                    <input type="checkbox" value="ormar" class="srv-cb w-4 h-4 rounded text-brand-accent focus:ring-0 bg-slate-900 border-slate-700" onchange="calculateEstimate()">
+                                    <span class="text-xs text-slate-300">Novi razvodni ormar sa osiguračima</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-800/50 cursor-pointer border border-transparent hover:border-slate-800">
+                                    <input type="checkbox" value="ev" class="srv-cb w-4 h-4 rounded text-brand-accent focus:ring-0 bg-slate-900 border-slate-700" onchange="calculateEstimate()">
+                                    <span class="text-xs text-slate-300">Ugradnja EV Punjača za vozila</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-800/50 cursor-pointer border border-transparent hover:border-slate-800">
+                                    <input type="checkbox" value="gromobran" class="srv-cb w-4 h-4 rounded text-brand-accent focus:ring-0 bg-slate-900 border-slate-700" onchange="calculateEstimate()">
+                                    <span class="text-xs text-slate-300">Gromobran i uzemljenje</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-800/50 cursor-pointer border border-transparent hover:border-slate-800">
+                                    <input type="checkbox" value="vatrodojava" class="srv-cb w-4 h-4 rounded text-brand-accent focus:ring-0 bg-slate-900 border-slate-700" onchange="calculateEstimate()">
+                                    <span class="text-xs text-slate-300">Protupožarno zatvaranje / Vatrodojava</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-slate-800/50 cursor-pointer border border-transparent hover:border-slate-800">
+                                    <input type="checkbox" value="atest" class="srv-cb w-4 h-4 rounded text-brand-accent focus:ring-0 bg-slate-900 border-slate-700" onchange="calculateEstimate()">
+                                    <span class="text-xs text-slate-300">Ispitivanje i zvanični atest</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Display Total & Action -->
+                    <div class="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Orijentaciona okvirna procjena:</span>
+                            <span id="est-price" class="text-3xl font-extrabold text-brand-accent">800 - 1.200 KM</span>
+                            <span class="text-[10px] text-slate-500 block mt-0.5">*Konačna ponuda se definiše nakon uvida u projekat ili izlaska na teren.</span>
+                        </div>
+                        <a href="#kontakt" onclick="prefillContactForm()" class="w-full sm:w-auto bg-brand-accent hover:bg-amber-400 text-brand-dark font-bold px-6 py-3.5 rounded-xl transition-all text-center">
+                            Pošalji specifikaciju za zvaničnu ponudu
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcija Zašto Izabrati Nas / Sigurnost -->
+    <section id="zasto-nas" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-accent text-sm font-bold tracking-widest uppercase">Sigurnost Bez Kompromisa</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">Zašto su stručno izvedene elektroinstalacije ključne?</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm">
+                        Preko 30% požara na objektima uzrokovano je neispravnim, preopterećenim ili zastarjelim električnim instalacijama. VoltTech garantuje najviši nivo zaštite kroz višestepene kontrole.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-brand-glow/10 text-brand-glow flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-shield-virus text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Prevencija strujnih udara</h4>
+                                <p class="text-slate-400 text-xs mt-1">Pravilno dimenzionisana FID/RCD zaštita koja reaguje u milisekundama pri dodiru opasnih napona.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-brand-accent flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-temperature-arrow-up text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Zaštita od preopterećenja i pregrijavanja</h4>
+                                <p class="text-slate-400 text-xs mt-1">Proračun presjeka provodnika spriječava zagrijavanje kablova u zidovima i rizik od požara.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-certificate text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Zakonita atestna dokumentacija</h4>
+                                <p class="text-slate-400 text-xs mt-1">Svi radovi se predaju uz mjerni zapisnik neophodan za tehnički prijem objekta ili osiguranje.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="glass-card p-8 rounded-3xl border border-slate-800 relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-brand-accent/5 rounded-full blur-2xl"></div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-6">Proces rada u 4 koraka</h3>
+                        
+                        <div class="space-y-6 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-800">
+                            
+                            <div class="relative flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent text-brand-dark font-bold text-sm flex items-center justify-center shrink-0 z-10">1</div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-sm">Besplatne konsultacije i uvid</h5>
+                                    <p class="text-slate-400 text-xs mt-0.5">Analiza vašeg zahtjeva, projektnog zadatka ili izlazak na teren.</p>
+                                </div>
+                            </div>
+
+                            <div class="relative flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-accent border border-brand-accent/40 font-bold text-sm flex items-center justify-center shrink-0 z-10">2</div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-sm">Ponuda i proračun</h5>
+                                    <p class="text-slate-400 text-xs mt-0.5">Detaljan troškovnik sa definisanim rokovima izvođenja.</p>
+                                </div>
+                            </div>
+
+                            <div class="relative flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 text-brand-accent border border-brand-accent/40 font-bold text-sm flex items-center justify-center shrink-0 z-10">3</div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-sm">Izvođenje radova</h5>
+                                    <p class="text-slate-400 text-xs mt-0.5">Stručni radovi po najvišim standardima struke i uz upotrebu atestiranih materijala.</p>
+                                </div>
+                            </div>
+
+                            <div class="relative flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500 text-slate-950 font-bold text-sm flex items-center justify-center shrink-0 z-10"><i class="fa-solid fa-check"></i></div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-sm">Testiranje i Predaja Atesta</h5>
+                                    <p class="text-slate-400 text-xs mt-0.5">Mjeriteljsko ispitivanje, puštanje u rad i garancija na izvedeno stanje.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Sekcija -->
+    <section id="kontakt" class="py-24 bg-slate-900/60 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-accent text-sm font-bold tracking-widest uppercase">Stupite u kontakt</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Zatražite Ponudu ili Savjet Inženjera</h2>
+                <p class="text-slate-400 text-sm mt-3">Odgovaramo na sve upite u roku od 24h. Za hitne intervencije pozovite direktno na telefon.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Info Kolona -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-6">
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 text-brand-accent flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Telefon / Dežurni Inženjer</div>
+                                <a href="tel:+38761123456" class="text-lg font-bold text-white hover:text-brand-accent transition-colors block mt-0.5">+387 61 123 456</a>
+                                <a href="tel:+38733123456" class="text-sm text-slate-300 hover:text-brand-accent transition-colors block">+387 33 123 456</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-brand-glow/10 border border-brand-glow/20 text-brand-glow flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Email adresa za projekte</div>
+                                <a href="mailto:info@volttech.ba" class="text-base font-bold text-white hover:text-brand-accent transition-colors block mt-0.5">info@volttech.ba</a>
+                                <a href="mailto:ponude@volttech.ba" class="text-sm text-slate-300 hover:text-brand-accent transition-colors block">ponude@volttech.ba</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Sedište i Radionica</div>
+                                <div class="text-sm font-semibold text-white mt-0.5">Mehmeda Pasha Sokolovića 12</div>
+                                <div class="text-xs text-slate-400">71000 Sarajevo, Bosna i Hercegovina</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Radno Vrijeme</div>
+                                <div class="text-sm text-slate-200 mt-0.5"><span class="font-semibold text-white">Ponedjeljak - Petak:</span> 08:00 - 17:00</div>
+                                <div class="text-sm text-slate-200"><span class="font-semibold text-white">Subota:</span> 08:00 - 14:00</div>
+                                <div class="text-xs text-brand-accent mt-1"><i class="fa-solid fa-bolt"></i> Hitne intervencije dostupne 24/7</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Visual Placeholder Map -->
+                    <div class="rounded-2xl overflow-hidden border border-slate-800 h-48 bg-slate-800/40 relative flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80" alt="Mapa lokacije" class="w-full h-full object-cover opacity-40">
+                        <div class="absolute text-center bg-brand-dark/90 px-4 py-2 rounded-xl border border-slate-700">
+                            <i class="fa-solid fa-location-dot text-brand-accent mb-1"></i>
+                            <span class="text-xs font-semibold text-slate-200 block">Sarajevo & Okolina</span>
+                            <span class="text-[10px] text-slate-400">Izlazak na teren na čitavoj teritoriji BiH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Kolona -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-8 rounded-2xl border border-slate-800">
+                        <h3 class="text-xl font-bold text-white mb-6">Upitnik za ponudu</h3>
+                        
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Ime i Prezime *</label>
+                                    <input type="text" required placeholder="npr. Marko Marković" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Broj Telefona *</label>
+                                    <input type="tel" required placeholder="npr. +387 61 000 000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Email adresa *</label>
+                                    <input type="email" required placeholder="vas.email@domena.ba" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Primarna Usluga</label>
+                                    <select id="form-service-select" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                        <option value="elektroinstalacije">Izvođenje / Održavanje instalacija</option>
+                                        <option value="razvodni-ormari">Razvodni ormari</option>
+                                        <option value="ev-punjaci">EV Punjači za vozila</option>
+                                        <option value="gromobran">Gromobranske instalacije</option>
+                                        <option value="agregati">Agregati i UPS BackUP</option>
+                                        <option value="rasvjeta">Rasvjetni sistemi</option>
+                                        <option value="vatrodojava">Protupožarno zatvaranje & Dojava</option>
+                                        <option value="ispitivanje">Ispitivanje i atestiranje</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Lokacija Objekta (Grad / Općina)</label>
+                                <input type="text" placeholder="npr. Sarajevo, Ilidža" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Detaljan Opis Zahtjeva / Poruka *</label>
+                                <textarea id="form-message" rows="4" required placeholder="Opišite detalje vašeg projekta ili postavite pitanje..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors resize-none"></textarea>
+                            </div>
+
+                            <div class="flex items-center space-x-2">
+                                <input type="checkbox" id="privacy" required class="w-4 h-4 rounded text-brand-accent bg-slate-900 border-slate-700">
+                                <label for="privacy" class="text-xs text-slate-400">Saglasan sam sa obradom podataka u svrhu izrade ponude.</label>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-accent hover:bg-amber-400 text-brand-dark font-bold py-4 rounded-xl shadow-lg shadow-amber-500/20 transition-all text-sm uppercase tracking-wider">
+                                Pošalji Upit Za Ponudu
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-sm py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-accent flex items-center justify-center text-brand-dark font-black text-xl">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <span class="text-xl font-black text-white tracking-wider">VOLT<span class="text-brand-accent">TECH</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Ovlaštena kompanija za projektovanje, nadzor i izvođenje svih vrsta elektroinstalacija i tehničkih sistema sigurnosti.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Brzi Linkovi</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#početna" class="hover:text-brand-accent transition-colors">Početna strana</a></li>
+                        <li><a href="#o-nama" class="hover:text-brand-accent transition-colors">O kompaniji</a></li>
+                        <li><a href="#usluge" class="hover:text-brand-accent transition-colors">Naše Usluge</a></li>
+                        <li><a href="#kalkulator" class="hover:text-brand-accent transition-colors">Kalkulator Troškova</a></li>
+                        <li><a href="#kontakt" class="hover:text-brand-accent transition-colors">Kontakt i Lokacija</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Glavne Usluge</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#usluge" class="hover:text-brand-accent transition-colors">Elektroinstalacije jake i slabe struje</a></li>
+                        <li><a href="#usluge" class="hover:text-brand-accent transition-colors">Sklapanje Razvodnih Ormara</a></li>
+                        <li><a href="#usluge" class="hover:text-brand-accent transition-colors">Instalacija EV Punjača</a></li>
+                        <li><a href="#usluge" class="hover:text-brand-accent transition-colors">Gromobrani & Prenaponska Zaštita</a></li>
+                        <li><a href="#usluge" class="hover:text-brand-accent transition-colors">Protupožarni Prodori & Dojava</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Tehnička Podrška</h4>
+                    <p class="text-xs text-slate-400 mb-3">Imate hitan kvar ili prekid napajanja?</p>
+                    <a href="tel:+38761123456" class="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2.5 rounded-xl text-xs text-brand-accent font-bold hover:border-brand-accent transition-all">
+                        <i class="fa-solid fa-headset"></i> 0-24h Dežurni Tim
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 VoltTech Elektro Inženjering d.o.o. Sva prava zadržana.</p>
+                <div class="flex space-x-6 text-slate-500">
+                    <a href="#" class="hover:text-slate-300">Standardi i ISO Certifikati</a>
+                    <a href="#" class="hover:text-slate-300">Politika privatnosti</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Notification Modal / Toast -->
+    <div id="toast-modal" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 max-w-sm w-full">
+        <div class="glass-card bg-slate-900/95 border-l-4 border-brand-accent p-4 rounded-xl shadow-2xl flex items-start space-x-3">
+            <div class="text-brand-accent text-xl mt-0.5">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="flex-1">
+                <h4 class="text-sm font-bold text-white" id="toast-title">Upit uspješno poslat!</h4>
+                <p class="text-xs text-slate-300 mt-0.5" id="toast-msg">Zahvaljujemo se. Naš inženjer će vas kontaktirati u najkraćem roku.</p>
+            </div>
+            <button onclick="hideToast()" class="text-slate-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive Price Estimator logic
+        function calculateEstimate() {
+            const area = parseInt(document.getElementById('area-slider').value) || 0;
+            const facilityType = document.querySelector('input[name="facility"]:checked')?.value || 'stan';
+            
+            // Base rate per sq meter based on type
+            let baseRate = 12; // KM / m2
+            if (facilityType === 'poslovni') baseRate = 16;
+            if (facilityType === 'industrija') baseRate = 22;
+            if (facilityType === 'ostalo') baseRate = 8;
+
+            let totalMin = area * baseRate;
+            
+            // Checkboxes additions
+            const checkboxes = document.querySelectorAll('.srv-cb:checked');
+            checkboxes.forEach(cb => {
+                if (cb.value === 'ormar') totalMin += 350;
+                if (cb.value === 'ev') totalMin += 600;
+                if (cb.value === 'gromobran') totalMin += 450;
+                if (cb.value === 'vatrodojava') totalMin += 500;
+                if (cb.value === 'atest') totalMin += 200;
+            });
+
+            let totalMax = Math.round(totalMin * 1.35);
+            totalMin = Math.round(totalMin);
+
+            document.getElementById('est-price').innerText = `${totalMin.toLocaleString()} - ${totalMax.toLocaleString()} KM`;
+        }
+
+        // Prefill contact form message from estimator
+        function prefillContactForm() {
+            const area = document.getElementById('area-slider').value;
+            const facilityType = document.querySelector('input[name="facility"]:checked')?.value || 'stan';
+            const price = document.getElementById('est-price').innerText;
+
+            let selectedServices = [];
+            document.querySelectorAll('.srv-cb:checked').forEach(cb => {
+                selectedServices.push(cb.parentNode.textContent.trim());
+            });
+
+            const msgField = document.getElementById('form-message');
+            msgField.value = `Pozdrav,\n\nŽelim zvaničnu ponudu na osnovu procjene sa kalkulatora:\n- Tip objekta: ${facilityType.toUpperCase()}\n- Površina: ${area} m²\n- Odabrane stavke: ${selectedServices.join(', ')}\n- Orijentaciona procjena: ${price}\n\nMolim da me kontaktirate radi detalja.`;
+        }
+
+        // Contact Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Show custom toast notification
+            showToast("Upit uspješno poslat!", "Hvala Vam. Naš inženjer će pregledati detalje i javiti vam se ubrzo.");
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Toast Functions
+        function showToast(title, message) {
+            const toast = document.getElementById('toast-modal');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-msg').innerText = message;
+
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                hideToast();
+            }, 5000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('toast-modal');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-32', 'opacity-0');
+        }
+
+        // Initial Calculation on Load
+        window.onload = function() {
+            calculateEstimate();
+        };
+    </script>
+</body>
+</html>
