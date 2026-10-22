@@ -13,10 +13,10 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0B132B',
-                            card: '#1C2541',
-                            accent: '#F7B801', // Električno žuta/zlatna
-                            glow: '#3A86FF', // Srebrena
+                            dark: '#F1F5F9', // Svijetla siva pozadina umjesto tamne
+                            card: '#FFFFFF', // Čisto bijela pozadina za kartice
+                            accent: '#F7B801', // Žuta/zlatna ostaje ista za detalje
+                            glow: '#3A86FF',
                             muted: '#475569',
                             light: '#F8FAFC'
                         }
@@ -99,14 +99,8 @@
                 
                 <!-- Logo -->
                 <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-accent to-amber-500 flex items-center justify-center text-brand-dark font-extrabold text-2xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-bolt-lightning"></i>
-                    </div>
-                    <div>
-                        <span class="text-2xl font-black tracking-wider text-white">elektro-<span class="text-brand-accent">ARS</span></span>
-                        <span class="block text-[10px] tracking-widest text-slate-400 font-semibold uppercase -mt-1"></span>
-                    </div>
-                </a>
+    <img src="logo.png" alt="Elektro-ARS Logo" class="h-12 w-auto object-contain">
+</a>
 
                 <!-- Desktop Nav -->
                 <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
@@ -213,7 +207,7 @@
                     <div class="relative mx-auto max-w-md lg:max-w-none">
                         <div class="glass-card p-6 rounded-2xl relative z-10 shadow-2xl">
                             <div class="relative rounded-xl overflow-hidden aspect-video sm:aspect-square mb-6 border border-slate-700">
-                                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Električar na radu" class="w-full h-full object-cover">
+                                <img src="https://davidkeiser.de/wp-content/uploads/2026/07/was-verdient-ein-elektriker-1024x687.webp" alt="Električar na radu" class="w-full h-full object-cover">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
                                 <div class="absolute bottom-4 left-4 right-4 p-3 bg-brand-dark/80 backdrop-blur-md rounded-lg border border-slate-700 flex items-center justify-between">
                                     <div class="flex items-center gap-3">
@@ -680,8 +674,8 @@
                             </div>
                             <div>
                                 <div class="text-xs text-slate-400">Telefon / Dežurni tim</div>
-                                <a href="tel:+38761123456" class="text-lg font-bold text-white hover:text-brand-accent transition-colors block mt-0.5">+387 644000801</a>
-                                <a href="tel:+38733123456" class="text-sm text-slate-300 hover:text-brand-accent transition-colors block">+387644000801</a>
+                                <a href="tel:+387644000801" class="text-lg font-bold text-white hover:text-brand-accent transition-colors block mt-0.5">+387 644000801</a>
+                                <a href="tel:+387644000801" class="text-sm text-slate-300 hover:text-brand-accent transition-colors block"></a>
                             </div>
                         </div>
 
@@ -691,8 +685,8 @@
                             </div>
                             <div>
                                 <div class="text-xs text-slate-400">Email adresa za projekte</div>
-                                <a href="mailto:info@volttech.ba" class="text-base font-bold text-white hover:text-brand-accent transition-colors block mt-0.5">elektro-ars@hotmail.com</a>
-                                <a href="mailto:ponude@volttech.ba" class="text-sm text-slate-300 hover:text-brand-accent transition-colors block">elektro-ars@hotmail.com</a>
+                                <a href="elektro-ars@hotmail.com" class="text-base font-bold text-white hover:text-brand-accent transition-colors block mt-0.5">elektro-ars@hotmail.com</a>
+                                <a href="elektro-ars@hotmail.com" class="text-sm text-slate-300 hover:text-brand-accent transition-colors block"></a>
                             </div>
                         </div>
 
