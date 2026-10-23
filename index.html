@@ -731,22 +731,23 @@
                     <div class="glass-card p-8 rounded-2xl border border-slate-800">
                         <h3 class="text-xl font-bold text-white mb-6">Upitnik za ponudu</h3>
                         
-                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+    <input type="hidden" name="access_key" value="cc43315a-b8d0-487a-b34a-2158272a4e72">
                             <div class="grid sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1">Ime i Prezime *</label>
-                                    <input type="text" required placeholder="npr. Marko Marković" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                    <input type="text" name="ime" required placeholder="npr. Marko Marković" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1">Broj Telefona *</label>
-                                    <input type="tel" required placeholder="npr. +387 61 000 000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                    <input type="tel" name="telefon" required placeholder="npr. +387 61 000 000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white">
                                 </div>
                             </div>
 
                             <div class="grid sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1">Email adresa *</label>
-                                    <input type="email" required placeholder="vas.email@domena.ba" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors">
+                                    <input type="email" name="email" required placeholder="vas.email@domena.ba" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-slate-300 mb-1">Primarna Usluga</label>
@@ -802,7 +803,7 @@
                         <span class="text-xl font-black text-white tracking-wider">elektro-<span class="text-brand-accent">ARS</span></span>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        Ovlaštena kompanija za izvođenje svih vrsta elektroinstalacija i tehničkih sistema sigurnosti.
+                        Ovlaštena kompanija za izvođenje svih vrsta elektroinstalacija i ostalih instalacija u građevini
                     </p>
                 </div>
 
@@ -831,7 +832,7 @@
                 <div>
                     <h4 class="text-white font-semibold text-sm mb-4">Tehnička Podrška</h4>
                     <p class="text-xs text-slate-400 mb-3">Imate hitan kvar ili prekid napajanja?</p>
-                    <a href="tel:+38761123456" class="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2.5 rounded-xl text-xs text-brand-accent font-bold hover:border-brand-accent transition-all">
+                    <a href="tel:+387644000801" class="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 px-4 py-2.5 rounded-xl text-xs text-brand-accent font-bold hover:border-brand-accent transition-all">
                         <i class="fa-solid fa-headset"></i> 0-24h Dežurni Tim
                     </a>
                 </div>
@@ -839,7 +840,7 @@
             </div>
 
             <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-                <p>&copy; 2026 VoltTech Elektro Inženjering d.o.o. Sva prava zadržana.</p>
+                <p>&copy; 2026 elektro-ARS. Sva prava zadržana.</p>
                 <div class="flex space-x-6 text-slate-500">
                     <a href="#" class="hover:text-slate-300">Standardi i ISO Certifikati</a>
                     <a href="#" class="hover:text-slate-300">Politika privatnosti</a>
